@@ -93,7 +93,7 @@ String day = "";
                 }
                 if(day.equals("Thirst"))
                 {
-                Title.setText("Death by Thrist");
+                Title.setText("Death by Thirst");
                 Op1.setVisible(false);
                 Op1.setEnabled(false);
                 Op2.setVisible(false);
