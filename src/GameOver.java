@@ -1,5 +1,7 @@
 
 import java.awt.Color;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Random;
 
 /*
@@ -104,6 +106,18 @@ public class GameOver extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+        try{
+            FileWriter Day = new FileWriter("Day.txt");
+                    PrintWriter BookWriter = new PrintWriter(Day);
+                    
+                    BookWriter.println("0") ;
+                    BookWriter.close();
+                    
+        }
+        catch(Exception e)
+          {
+              
+          }
         HomePage f1 = new HomePage();
 
         f1.setVisible(true);

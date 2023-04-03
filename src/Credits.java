@@ -56,10 +56,10 @@ public class Credits extends javax.swing.JPanel {
         jLabel5.setText("Special Thanks To");
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel6.setText("J. Andrew Deman");
+        jLabel6.setText("J. Andrew Deman (The Best Prof)");
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel7.setText("Nimona");
+        jLabel7.setText("Nimona (The Cutest Dog)");
 
         jButton9.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jButton9.setText("Back to Home Page");
@@ -83,8 +83,12 @@ public class Credits extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(71, 71, 71)))
                 .addGap(0, 204, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

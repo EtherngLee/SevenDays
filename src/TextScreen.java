@@ -432,6 +432,7 @@ String day = "";
         Op2 = new javax.swing.JButton();
         Op1 = new javax.swing.JButton();
         Cont = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -477,6 +478,15 @@ String day = "";
         });
         jPanel1.add(Cont, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 692, 234, 74));
 
+        jButton1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jButton1.setText("Exit Game");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 180, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -516,6 +526,21 @@ String day = "";
                  || day.equals("3 supermarket steal") || day.equals("6 shoot") || day.equals("7 survivor befriend") || day.equals("7 survivor attack")
                  || day.equals("7 supermarket steal") || day.equals("7 supermarket kill alien"))
         {
+            if(day.equals("7 supermarket kill alien"))
+            {
+                try{
+            FileWriter Day = new FileWriter("Extra.txt");
+                    PrintWriter BookWriter = new PrintWriter(Day);
+                    
+                    BookWriter.println("1") ;
+                    BookWriter.close();
+        }
+        catch(Exception e)
+          {
+              
+          }
+            }
+            
         GameOver f1 = new GameOver();
 
         f1.setVisible(true);
@@ -973,6 +998,13 @@ String day = "";
         day = days;
     }//GEN-LAST:event_Op1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        HomePage f1 = new HomePage();
+
+        f1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1014,6 +1046,7 @@ String day = "";
     private javax.swing.JButton Op2;
     private javax.swing.JTextArea Tesxt;
     private javax.swing.JLabel Title;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

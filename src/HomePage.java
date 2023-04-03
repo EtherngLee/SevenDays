@@ -22,6 +22,31 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        Extras.setEnabled(false);
+        Extras.setVisible(false);
+        try{
+            String game = "";
+            FileReader fr = new FileReader("Extra.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String r ="";
+                
+                while((r=br.readLine())!=null)
+                {
+                    StringTokenizer tk = new StringTokenizer(r,"|");
+                    game = r;
+                }
+                br.close();
+                System.out.println(game);
+                if(game.equals("1"))
+                {
+                    Extras.setEnabled(true);
+                    Extras.setVisible(true);
+                }
+        }
+        catch(Exception e)
+        {
+            
+        }
     }
 
     /**
@@ -39,6 +64,7 @@ public class HomePage extends javax.swing.JFrame {
         Resume = new javax.swing.JButton();
         GoToCredits = new javax.swing.JButton();
         GoToStart1 = new javax.swing.JButton();
+        Extras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +106,14 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        Extras.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        Extras.setText("Extras");
+        Extras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExtrasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,7 +125,8 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(GoToHow, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Resume, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(GoToCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GoToStart1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GoToStart1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Extras, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(247, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,11 +138,13 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(GoToHow, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(GoToStart1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Resume, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(GoToCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Extras, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,6 +229,11 @@ public class HomePage extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_GoToStart1ActionPerformed
 
+    private void ExtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExtrasActionPerformed
+        setContentPane(new ExtraContent());
+        pack();
+    }//GEN-LAST:event_ExtrasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,6 +270,7 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Extras;
     private javax.swing.JButton GoToCredits;
     private javax.swing.JButton GoToHow;
     private javax.swing.JButton GoToStart1;
