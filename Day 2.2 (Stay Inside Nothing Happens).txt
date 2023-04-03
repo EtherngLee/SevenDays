@@ -1,0 +1,10 @@
+You continue pacing, counting your steps as you go.
+
+10,001
+
+10,002
+
+10,003
+
+You’ve completely tired yourself out at this point and to avoid going absolutely insane, you decide to go to
+sleep.
