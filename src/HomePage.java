@@ -1,6 +1,9 @@
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,8 +36,9 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         GoToHow = new javax.swing.JButton();
-        GoToStart = new javax.swing.JButton();
+        Resume = new javax.swing.JButton();
         GoToCredits = new javax.swing.JButton();
+        GoToStart1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,11 +56,11 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        GoToStart.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        GoToStart.setText("Start Game");
-        GoToStart.addActionListener(new java.awt.event.ActionListener() {
+        Resume.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        Resume.setText("Resume Game");
+        Resume.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GoToStartActionPerformed(evt);
+                ResumeActionPerformed(evt);
             }
         });
 
@@ -68,6 +72,14 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        GoToStart1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        GoToStart1.setText("New Game");
+        GoToStart1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GoToStart1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,11 +87,12 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(286, 286, 286)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(GoToHow, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GoToStart, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GoToCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(274, Short.MAX_VALUE))
+                    .addComponent(Resume, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GoToCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GoToStart1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,11 +101,13 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(GoToHow, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(GoToStart, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(GoToStart1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(Resume, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(GoToCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,7 +129,50 @@ public class HomePage extends javax.swing.JFrame {
         pack();
     }//GEN-LAST:event_GoToHowActionPerformed
 
-    private void GoToStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoToStartActionPerformed
+    private void ResumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResumeActionPerformed
+        String day = "";
+        try{
+            FileReader fr = new FileReader("Day.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String r ="";
+                
+                while((r=br.readLine())!=null)
+                {
+                    StringTokenizer tk = new StringTokenizer(r,"|");
+                    day = r;
+                }
+                br.close();
+        }
+        catch(Exception e)
+        {
+            
+        }
+        if(day.equals("0") || day.equals("2.1") || day.equals("Hunger") || day.equals("Thirst") || day.equals("3 outside") || day.equals("3 survivor")
+                || day.equals("3 survivor befriend") || day.equals("3 supermarket") || day.equals("3 supermarket kill alien") || day.equals("3 supermarket steal")
+                || day.equals("6 shoot") || day.equals("7 outside") || day.equals("7 survivor") || day.equals("7 survivor befriend") || day.equals("7 supermarket")
+                || day.equals("7 supermarket kill alien") || day.equals("7 supermarket steal"))
+        {
+            TextScreen f1 = new TextScreen();
+
+        f1.setVisible(true);
+        this.setVisible(false);
+        }
+        if(day.equals("1") || day.equals("2") || day.equals("3") || day.equals("3 return home") || day.equals("4") || day.equals("5") || day.equals("5 meds")
+                || day.equals("5 no meds") || day.equals("6 sleep")||day.equals("6 sleep") || day.equals("6 no sleep") || day.equals("6 no shoot") || day.equals("7"))
+        {
+            Bunker f1 = new Bunker();
+
+        f1.setVisible(true);
+        this.setVisible(false);
+        }
+    }//GEN-LAST:event_ResumeActionPerformed
+
+    private void GoToCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoToCreditsActionPerformed
+        setContentPane(new Credits());
+        pack();
+    }//GEN-LAST:event_GoToCreditsActionPerformed
+
+    private void GoToStart1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoToStart1ActionPerformed
         try{
             FileWriter Day = new FileWriter("Day.txt");
                     PrintWriter BookWriter = new PrintWriter(Day);
@@ -132,12 +190,7 @@ public class HomePage extends javax.swing.JFrame {
 
         f1.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_GoToStartActionPerformed
-
-    private void GoToCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoToCreditsActionPerformed
-        setContentPane(new Credits());
-        pack();
-    }//GEN-LAST:event_GoToCreditsActionPerformed
+    }//GEN-LAST:event_GoToStart1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,7 +230,8 @@ public class HomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton GoToCredits;
     private javax.swing.JButton GoToHow;
-    private javax.swing.JButton GoToStart;
+    private javax.swing.JButton GoToStart1;
+    private javax.swing.JButton Resume;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
